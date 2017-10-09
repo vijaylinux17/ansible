@@ -1,0 +1,9 @@
+---
+  - hosts: ubu
+    
+    tasks:
+      - include: os.yaml
+    
+      - name: check apache service
+        service: name={{ package_name }} state=started
+
