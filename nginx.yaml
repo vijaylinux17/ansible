@@ -1,0 +1,21 @@
+---
+- hosts: all
+  gather_facts: False
+  pre_tasks:
+   - name: Install Python
+     raw: bash -c "test -e /usr/bin/python || (apt -qqy update && apt install -qqy python-minimal)"
+     register: output
+     changed_when: output.stdout != ""  
+
+  tasks:
+    - name: Ubuntu Package Update 
+      apt: update_cache=yes
+     
+    - name: Nginx Installation 
+      apt:
+        pkg: nginx
+        state: latest
+
+    - name: Copy file remotely
+      copy: src=/home/ubuntu/index.html dest=/var/www/html
+     
