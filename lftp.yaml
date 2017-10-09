@@ -1,0 +1,12 @@
+---
+- hosts: amz
+  tasks:
+    - name: install lftp Package
+      yum: name=lftp state=latest
+  
+    - name: Debug 
+      debug: msg={{ ansible_distribution }}
+
+    - name: OS
+      debug: msg={{ ansible_os_family }}
+
