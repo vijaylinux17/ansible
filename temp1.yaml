@@ -1,0 +1,8 @@
+---
+
+ - hosts: ubu
+   gather_facts: false
+   tasks:
+
+     - name: Create template file
+       template: src=/root/ansi/tmp1 dest=/tmp/test 
