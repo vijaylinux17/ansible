@@ -5,3 +5,6 @@
      - name: check docker service
        service: name=docker state=started
        
+while execution add the host name like
+ansible-playbook -b comm.yaml --extra-vars "node=doc"
+here host name is doc as define in hosts file
